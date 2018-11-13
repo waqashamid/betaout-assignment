@@ -22,7 +22,7 @@ BODY
 				"waqashamid722@gmail.com",
 				"waqas@gmail.com"
 				],
-	"body" : "Hey! Welcome to the Betaout",
+	"body" : "Hey! Welcome to Betaout",
 	"subject" : "Welcome!"
 }
 ```
@@ -33,3 +33,30 @@ BODY
     "Success": "Emails sent"
 }
 ```
+
+**1. Get user data endpoint**
+
+**_Request_:**
+
+GET `localhost:8000/api/v1/bouncer/user/data/waqashamid722@gmail.com`
+
+
+**_Response_:**
+```
+{
+    "id": 2,
+    "email": "waqashamid722@gmail.com",
+    "emails_received": [
+        {
+            "id": 1,
+            "subject": "Welcome!",
+            "body": "Hey! Welcome to Betaout",
+            "created": "2018-11-13T08:29:13.291557Z",
+            "modified": "2018-11-13T08:29:13.291628Z"
+        }
+    ],
+    "created": "2018-11-13T08:29:13.373497Z",
+    "modified": "2018-11-13T08:29:13.525045Z"
+}
+```
+
