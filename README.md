@@ -19,9 +19,9 @@ BODY
 ```
 {
 	"emails" : [
-				"waqashamid722@gmail.com",
-				"waqas@gmail.com"
-				],
+			"waqashamid722@gmail.com",
+			"waqas@gmail.com"
+			],
 	"body" : "Hey! Welcome to Betaout",
 	"subject" : "Welcome!"
 }
