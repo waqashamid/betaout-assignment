@@ -39,12 +39,19 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
+class EmailData(Base):
+    subject = models.CharField(max_length=256)
+    body = models.CharField(null=True, blank=True, max_length=2048)
+
+    def __str__(self):
+        return self.subject
+
 class User(AbstractBaseUser, PermissionsMixin, Base):
     email = models.EmailField(db_index=True, unique=True, max_length=255)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
-
+    emails_received = models.ManyToManyField(EmailData)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     objects = UserManager()
@@ -57,3 +64,5 @@ class User(AbstractBaseUser, PermissionsMixin, Base):
 
     def has_module_perms(self, app_label):
         return True
+
+
